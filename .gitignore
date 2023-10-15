@@ -243,6 +243,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+TransferFunction6.mat
 
 # Spyder project settings
 .spyderproject
