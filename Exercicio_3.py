@@ -45,3 +45,5 @@ plt.title('Resposta da Função de Transferência Fornecida e Estimada', fontsiz
 plt.grid(True)
 # Exibir o gráfico
 plt.show()
+
+
