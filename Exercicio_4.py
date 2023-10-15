@@ -9,11 +9,11 @@ theta = 1.49
 num = np. array ([k]) # Cria um array contendo um único elemento, 'k'
 den = np. array ([tau , 1])# Cria um array contendo o valor de 'tau' e 1
 H = cnt.tf(num , den)# Cria uma funcao de transferencia
+
 # Montar o sistema usando expansão de Pade
 n_pade = 20 # Define a ordem da aproximação de Pade.
 ( num_pade , den_pade ) = cnt.pade ( theta , n_pade ) # Gera polinômios para aproximação de Padé do atraso "theta".
 H_pade = cnt.tf( num_pade , den_pade )# Cria uma função de transferência usando os polinômios obtidos.
-
 
 Hs = cnt.series (H , H_pade)
 Hmf = cnt.feedback(Hs, 1)
@@ -34,3 +34,10 @@ plt.title('Malha Aberta x Malha Fechada')
 plt.grid ()
 plt.show()
 
+# Erro de estado estacionário para malha aberta e malha fechada
+e_ss_open = 10 - y[-1]
+e_ss_closed = 10 - y1[-1]
+
+# Exibindo os erros de estado estacionário
+print(f"Erro malha aberta: {e_ss_open:.2f}")
+print(f"Erro malha fechada: {e_ss_closed:.2f}")
