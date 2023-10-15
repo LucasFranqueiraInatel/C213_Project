@@ -37,10 +37,12 @@ y_t2 = max_sinal * 0.632
 
 t1 = 4.48
 t2 = 10.45
-print('Y(t1) = ', y_t1, ' | t1 =',t1)
-print('Y(t2) = ', y_t2, ' | t2 =',t2)
+print(f'Y(t1) =  {y_t1[0]:.2f}   t1 = {t1}')
+print(f'Y(t2) =  {y_t2[0]:.2f}  t2 = {t2}')
 
 k = delta_sinal/degrau
 tau = 1.5 * (t2 - t1)
 theta = t2 - tau
-print("Ganho: ", k, "Constante de Tempo: ", tau, "Tempo de atraso: ", theta)
+print("K: ", {k[0]})
+print("τ: ", {tau})
+print("θ: ", {theta})

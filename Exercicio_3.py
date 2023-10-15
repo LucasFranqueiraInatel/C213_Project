@@ -9,21 +9,22 @@ degrau = mat.get('degrau')
 saida = mat.get('saida')
 t1 = mat.get('t')
 
-# Parâmetros da função de transferência em primeira ordem
+# Parâmetros da função de transferência encontrados
 k = 2.193
 tau = 8.95
 theta = 1.49
 
-# Construir a função de transferência
-num = np.array([k])
-den = np.array([tau, 1])
-H = cnt.tf(num, den)
+num = np.array([k]) # Cria um array contendo um único elemento, 'k'
+den = np.array([tau, 1]) # Cria um array contendo o valor de 'tau' e 1
+H = cnt.tf(num, den) # Cria uma funcao de transferencia
+
 
 # Montar o sistema usando expansão de Pade
-n_pade = 20
-(num_pade, den_pade) = cnt.pade(theta, n_pade)
-H_pade = cnt.tf(num_pade, den_pade)
-Hs = cnt.series(H, H_pade)
+n_pade = 20 # Define a ordem da aproximação de Padé.
+(num_pade, den_pade) = cnt.pade(theta, n_pade) # Gera polinômios para aproximação de Padé do atraso "theta".
+H_pade = cnt.tf(num_pade, den_pade) # Cria uma função de transferência usando os polinômios obtidos.
+Hs = cnt.series(H, H_pade) # Concatena em série as funções de transferência H e H_pade.
+
 
 # Simular a resposta da função de transferência estimada
 time, y = cnt.step_response(10*Hs, T=t1)
@@ -42,6 +43,5 @@ plt.title('Resposta da Função de Transferência Fornecida e Estimada', fontsiz
 
 # Adicionar grade
 plt.grid(True)
-
 # Exibir o gráfico
 plt.show()
