@@ -8,23 +8,31 @@ dados = loadmat('TransferFunction6.mat')
 # Extraindo as variáveis e assegurando que são 1D
 saida = dados.get('saida').flatten()
 degrau = dados.get('degrau').flatten()
-t = dados.get('t').flatten()
+tempo = dados.get('t').flatten()
 
 # Encontrar o índice do primeiro valor em saida que é >= 28,3% e 63,2% de saida[-1]
 L_t1 = np.where(saida >= 0.283 * saida[-1])[0][0]
 L_t2 = np.where(saida >= 0.632 * saida[-1])[0][0]
 
 # Tempo correspondente a 28,3% e 63,2% de saida[-1]
-t1 = t[L_t1]
-t2 = t[L_t2]
+t1 = tempo[L_t1]
+t2 = tempo[L_t2]
 
 # Imprimir o tempo encontrado
-print("T1=",t1)
-print("T2=",t2)
+print(f"delta = {saida[-1]:.2f}")
+print("T1 = ",t1)
+print("T2 = ",t2)
+t = 1.5*(t2-t1)
+print(f"t = {t}")
+o = t2-t
+print(f"Ø = {o}")
+k = saida[-1]/degrau[-1]
+print(f"k = {k}")
+print(degrau[-1])
 
 # Plotando os gráficos
-plt.plot(t, saida, label='Saída')
-plt.plot(t, degrau, label='Degrau de entrada')
+plt.plot(tempo, saida, label='Saída')
+plt.plot(tempo, degrau, label='Degrau de entrada')
 
 # Marcar os pontos t1 e t2 no gráfico
 plt.scatter([t1, t2], [saida[L_t1], saida[L_t2]], color='red')  # desenha os pontos em vermelho
