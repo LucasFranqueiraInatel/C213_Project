@@ -43,6 +43,6 @@ print(f'Y(t2) =  {y_t2[0]:.2f}  t2 = {t2}')
 k = delta_sinal/degrau
 tau = 1.5 * (t2 - t1)
 theta = t2 - tau
-print("K: ", {k[0]})
-print("τ: ", {tau})
-print("θ: ", {theta})
+print(f"K: {k[0]:.2f}")
+print(f"τ: {tau:.2f}")
+print(f"θ: {theta:.2f}")
