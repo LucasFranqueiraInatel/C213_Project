@@ -46,4 +46,8 @@ plt.grid(True)
 # Exibir o gráfico
 plt.show()
 
-
+# Calcular a diferença entre a resposta estimada e a resposta fornecida em cada ponto do tempo
+diff = y - saida.flatten()
+# Encontrar o valor máximo absoluto dessa diferença
+max_diff = np.max(np.abs(diff))
+print("A maior diferença entre as respostas é:", max_diff)
