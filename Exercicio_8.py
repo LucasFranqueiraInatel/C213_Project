@@ -53,7 +53,7 @@ def pid_calculator(theta, T, K, setpoint):
     plt.plot(t_chr, y_chr, linestyle='dashed', label='CHR')
     plt.xlabel('t [s]')
     plt.ylabel('Amplitude')
-    plt.title('Comparação: Cohen & Coon vs CHR')
+    plt.title('Comparação: Cohen & Coon vs CHR 2')
     plt.grid()
     plt.legend()
     plt.show()
