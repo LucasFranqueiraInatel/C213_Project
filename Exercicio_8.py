@@ -50,7 +50,7 @@ def pid_calculator(theta, T, K, setpoint):
     (t_chr, y_chr) = cnt.step_response(10*Hcl_chr, t)
 
     plt.plot(t, y, label='Cohen & Coon')
-    plt.plot(t_chr, y_chr, linestyle='dashed', label='CHR')
+    plt.plot(t_chr, y_chr, linestyle='dashed', label='CHR 2')
     plt.xlabel('t [s]')
     plt.ylabel('Amplitude')
     plt.title('Comparação: Cohen & Coon vs CHR 2')
